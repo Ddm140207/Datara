@@ -1,0 +1,26 @@
+# Local environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# .NET build outputs
+**/bin/
+**/obj/
+**/TestResults/
+
+# Frontend dependencies and outputs
+node_modules/
+dist/
+
+# Local data and logs
+storage/
+*.log

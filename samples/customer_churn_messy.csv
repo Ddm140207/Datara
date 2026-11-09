@@ -1,0 +1,51 @@
+customer_id,age,income,tenure_months,plan_type,contract_type,payment_method,region,usage_score,support_tickets,monthly_charges,total_spend,is_churned,satisfaction,contract_outcome,last_login_date,referral_code
+1001,34,72000.0,26,Premium,Month-to-month,Credit card,North,82.4,1,89.99,2339.74,0,8.1,None,2025-08-14,REF-8842
+1002,41,N/A,14,Basic,Month-to-month,Bank transfer,South,64.1,3,49.99,699.86,1,4.2,None,2025-09-01,REF-1177
+1003,29,54000.5,41,Premium,Two year,Credit card,West,91.7,0,89.99,3689.59,0,9.0,None,2025-08-29,
+1004,52,98000.0,8,Standard,One year,PayPal,East,45.3,5,64.99,519.92,1,3.8,None,2025-07-22,REF-9921
+1005,37,61000.0,33,Standard,Two year,Credit card,North,73.9,2,64.99,2144.67,0,7.4,None,2025-08-11,REF-3310
+1006,45,N/A,5,Basic,Month-to-month,Bank transfer,West,38.2,7,49.99,249.95,1,2.9,None,2025-06-30,REF-5567
+1007,28,47500.0,49,Premium,Two year,Credit card,East,88.0,0,89.99,4409.51,0,9.3,None,2025-09-03,REF-7724
+1008,61,105000.0,3,Standard,Month-to-month,PayPal,South,29.6,11,64.99,194.97,1,2.1,None,2025-05-18,REF-4409
+1009,33,58000.0,22,Basic,One year,Credit card,North,67.5,2,49.99,1099.78,0,6.8,None,2025-08-19,REF-6690
+1010,39,63000.0,18,Standard,Month-to-month,Credit card,West,71.2,3,64.99,1169.82,1,5.1,None,2025-08-02,REF-1183
+1011,26,N/A,12,Premium,One year,PayPal,East,84.6,1,89.99,1079.88,0,8.6,None,2025-08-25,REF-8842
+1012,47,88000.0,7,Standard,Month-to-month,Bank transfer,South,51.3,6,64.99,454.93,1,3.4,None,2025-06-15,REF-2205
+1013,31,52000.0,36,Basic,Two year,Credit card,North,79.1,1,49.99,1799.64,0,7.9,None,2025-09-04,REF-7781
+1014,55,112000.0,2,Premium,Month-to-month,PayPal,West,25.1,14,89.99,179.98,1,1.8,None,2025-05-09,REF-3310
+1015,42,66500.0,27,Standard,One year,Bank transfer,East,69.8,2,64.99,1754.73,0,6.9,None,2025-08-08,REF-9921
+1016,36,N/A,15,Basic,Month-to-month,Credit card,South,60.4,3,49.99,749.85,1,4.6,None,2025-07-30,REF-5567
+1017,30,49500.0,44,Premium,Two year,Credit card,North,94.2,0,89.99,3959.56,0,9.5,None,2025-09-05,REF-4409
+1018,49,91000.0,9,Standard,One year,PayPal,West,48.7,5,64.99,584.91,1,3.9,None,2025-07-05,REF-6690
+1019,44,70000.0,20,Basic,Month-to-month,Bank transfer,East,63.9,2,49.99,999.80,0,6.4,None,2025-08-21,REF-1183
+1020,33,58000.0,18,Standard,Month-to-month,Credit card,West,71.2,3,64.99,1169.82,1,5.1,None,2025-08-02,REF-2205
+1021,58,125000.0,1,Premium,Month-to-month,PayPal,South,18.4,16,89.99,89.99,1,1.4,None,2025-04-27,REF-8842
+1022,35,60500.0,24,Standard,Two year,Credit card,North,77.6,1,64.99,1559.76,0,7.7,None,2025-08-27,REF-1177
+1023,43,N/A,11,Basic,Month-to-month,Bank transfer,East,55.8,4,49.99,549.89,1,4.9,None,2025-07-12,REF-7724
+1024,38,68000.0,30,Premium,Two year,Credit card,West,86.3,1,89.99,2699.70,0,8.9,None,2025-09-02,REF-9921
+1025,50,89000.0,6,Standard,One year,PayPal,South,46.1,6,64.99,389.94,1,3.5,None,2025-06-25,REF-5567
+1026,32,54500.0,38,Basic,Two year,Credit card,North,81.7,0,49.99,1899.62,0,8.1,None,2025-09-06,REF-3310
+1027,46,83000.0,13,Standard,Month-to-month,Bank transfer,West,52.4,5,64.99,844.87,1,4.1,None,2025-07-18,REF-7724
+1028,27,44000.0,46,Premium,Two year,Credit card,East,92.8,0,89.99,4139.54,0,9.4,None,2025-09-05,REF-6690
+1029,53,99000.0,4,Standard,Month-to-month,PayPal,North,40.2,9,64.99,259.96,1,3.0,None,2025-06-08,REF-4409
+1030,40,74500.0,21,Basic,One year,Credit card,South,66.9,2,49.99,1049.79,0,6.6,None,2025-08-23,REF-1183
+1031,34,72000.0,26,Premium,Month-to-month,Credit card,North,82.4,1,89.99,2339.74,0,8.1,None,2025-08-14,REF-2205
+1032,41,N/A,14,Basic,Month-to-month,Bank transfer,South,64.1,3,49.99,699.86,1,4.2,None,2025-09-01,REF-8842
+1033,29,54000.5,41,Premium,Two year,Credit card,West,91.7,0,89.99,3689.59,0,9.0,None,2025-08-29,REF-7724
+1034,52,98000.0,8,Standard,One year,PayPal,East,45.3,5,64.99,519.92,1,3.8,None,2025-07-22,REF-9921
+1035,37,61000.0,33,Standard,Two year,Credit card,North,73.9,2,64.99,2144.67,0,7.4,None,2025-08-11,REF-5567
+1036,45,N/A,5,Basic,Month-to-month,Bank transfer,West,38.2,7,49.99,249.95,1,2.9,None,2025-06-30,REF-1177
+1037,28,47500.0,49,Premium,Two year,Credit card,East,88.0,0,89.99,4409.51,0,9.3,None,2025-09-03,REF-6690
+1038,61,105000.0,3,Standard,Month-to-month,PayPal,South,29.6,11,64.99,194.97,1,2.1,None,2025-05-18,REF-7724
+1039,33,58000.0,22,Basic,One year,Credit card,North,67.5,2,49.99,1099.78,0,6.8,None,2025-08-19,REF-4409
+1040,39,63000.0,18,Standard,Month-to-month,Credit card,West,71.2,3,64.99,1169.82,1,5.1,None,2025-08-02,REF-1183
+1041,26,N/A,12,Premium,One year,PayPal,East,84.6,1,89.99,1079.88,0,8.6,None,2025-08-25,REF-9921
+1042,47,88000.0,7,Standard,Month-to-month,Bank transfer,South,51.3,6,64.99,454.93,1,3.4,None,2025-07-15,REF-2205
+1043,31,52000.0,36,Basic,Two year,Credit card,North,79.1,1,49.99,1799.64,0,7.9,None,2025-09-04,REF-5567
+1044,55,112000.0,2,Premium,Month-to-month,PayPal,West,25.1,14,89.99,179.98,1,1.8,None,2025-05-09,REF-7724
+1045,42,66500.0,27,Standard,One year,Bank transfer,East,69.8,2,64.99,1754.73,0,6.9,None,2025-09-01,REF-6690
+1046,36,N/A,15,Basic,Month-to-month,Credit card,South,60.4,3,49.99,749.85,1,4.6,None,2025-07-28,REF-4409
+1047,30,49500.0,44,Premium,Two year,Credit card,North,94.2,0,89.99,3959.56,0,9.5,None,2025-09-06,REF-1183
+1048,49,91000.0,9,Standard,One year,PayPal,West,48.7,5,64.99,584.91,1,3.9,None,2025-08-20,REF-7724
+1049,44,70000.0,20,Basic,Month-to-month,Bank transfer,East,63.9,2,49.99,999.80,0,6.4,None,2025-08-31,REF-9921
+1050,48,86000.0,10,Standard,Month-to-month,PayPal,West,47.9,5,64.99,649.90,1,3.7,None,2025-07-10,REF-8842

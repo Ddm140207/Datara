@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datara • Dataset quality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-label="Datara logo">
+            <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="markGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                  <stop offset="0%" stop-color="#b9c5ff" />
+                  <stop offset="50%" stop-color="#88a5ff" />
+                  <stop offset="100%" stop-color="#7ae1c4" />
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="52" height="52" rx="16" fill="rgba(255,255,255,0.06)" stroke="url(#markGradient)" stroke-width="2" />
+              <path d="M19 42V22h8.8c6.6 0 10.5 3.9 10.5 9.7 0 5.7-3.9 9.6-10.5 9.6H19Zm7.2-6.6h1.2c2.7 0 4.2-1.7 4.2-4.1 0-2.5-1.5-4.2-4.2-4.2h-1.2v8.3Zm17.2 6.6V22h6.7v20h-6.7Z" fill="url(#markGradient)" />
+            </svg>
+          </div>
+          <div>
+            <p class="eyebrow">Data quality</p>
+            <h1>Datara</h1>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="overview">Overview</button>
+          <button class="nav-item" data-view="columns">Columns</button>
+          <button class="nav-item" data-view="issues">Issues</button>
+          <button class="nav-item" data-view="readiness">ML Readiness</button>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="mini-label">Pipeline</p>
+          <div class="progress-row">
+            <span>Profiling</span>
+            <strong>Complete</strong>
+          </div>
+          <div class="progress-bar"><span style="width: 92%"></span></div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dataset overview</p>
+            <h2 id="dataset-name">customer_churn_messy.csv</h2>
+          </div>
+          <div class="actions">
+            <label class="upload-btn">
+              <input id="file-input" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values" />
+              Upload dataset
+            </label>
+            <button class="ghost-btn" id="refresh-btn">Refresh</button>
+          </div>
+        </header>
+
+        <section class="metrics-grid" id="metrics-grid">
+          <article class="metric-card accent">
+            <div class="metric-head">
+              <span>Rows</span>
+              <span class="pill success">Live</span>
+            </div>
+            <strong id="rows-value">0</strong>
+            <small>observations</small>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-head">
+              <span>Columns</span>
+            </div>
+            <strong id="columns-value">0</strong>
+            <small>fields</small>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-head">
+              <span>Missing</span>
+            </div>
+            <strong id="missing-value">0</strong>
+            <small>cells</small>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-head">
+              <span>Readiness</span>
+            </div>
+            <strong id="score-value">0%</strong>
+            <small>ML score</small>
+          </article>
+        </section>
+
+        <section class="view-panel active" data-panel="overview">
+          <div class="content-grid">
+            <div class="panel panel-large">
+              <div class="panel-header">
+                <h3>Dataset metadata</h3>
+                <span class="status-dot">Detected</span>
+              </div>
+
+              <div class="meta-grid" id="meta-grid">
+                <div>
+                  <span class="meta-label">Source</span>
+                  <strong id="meta-source">--</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Updated</span>
+                  <strong id="meta-updated">--</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Format</span>
+                  <strong id="meta-format">CSV</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Target</span>
+                  <strong id="meta-target">--</strong>
+                </div>
+                <div>
+                  <span class="meta-label">File size</span>
+                  <strong id="meta-size">--</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Quality state</span>
+                  <strong id="meta-quality">Healthy</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-side">
+              <div class="panel-header">
+                <h3>Signals</h3>
+              </div>
+              <div class="signal-list" id="signals-list"></div>
+            </div>
+          </div>
+
+          <div class="panel insight-panel">
+            <div class="panel-header">
+              <h3>Quality summary</h3>
+            </div>
+            <p id="dataset-summary" class="dataset-summary"></p>
+          </div>
+        </section>
+
+        <section class="view-panel" data-panel="columns">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Column intelligence</h3>
+              <span class="tiny-mute" id="summary-tag">0 fields</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Column</th>
+                    <th>Type</th>
+                    <th>Missing</th>
+                    <th>Unique</th>
+                    <th>Sample</th>
+                    <th>Health</th>
+                  </tr>
+                </thead>
+                <tbody id="columns-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view-panel" data-panel="issues">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Quality issues</h3>
+            </div>
+            <div class="issue-list" id="issue-list"></div>
+          </div>
+        </section>
+
+        <section class="view-panel" data-panel="readiness">
+          <div class="readiness-grid">
+            <div class="panel readiness-panel">
+              <div class="panel-header">
+                <h3>ML readiness</h3>
+              </div>
+              <div class="readiness-shell">
+                <div class="readiness-ring" id="readiness-ring">
+                  <div class="readiness-ring-inner">
+                    <strong id="readiness-value">0%</strong>
+                    <span>score</span>
+                  </div>
+                </div>
+                <div class="readiness-copy">
+                  <p id="readiness-label">Needs review</p>
+                  <p id="readiness-description">
+                    The dataset is usable but requires cleaning before model training.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel readiness-panel">
+              <div class="panel-header">
+                <h3>Readiness checklist</h3>
+              </div>
+              <ul class="readiness-list" id="readiness-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

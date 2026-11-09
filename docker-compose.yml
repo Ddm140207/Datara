@@ -1,0 +1,104 @@
+name: datara
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: datara-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-datara}
+      POSTGRES_USER: ${POSTGRES_USER:-datara}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-datara}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-datara} -d ${POSTGRES_DB:-datara}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  analysis-service:
+    build:
+      context: ./analysis-service
+      dockerfile: Dockerfile
+    container_name: datara-analysis
+    restart: unless-stopped
+    environment:
+      DATARA_MAX_UPLOAD_BYTES: ${DATARA_MAX_UPLOAD_BYTES:-209715200}
+      DATARA_MAX_ROWS: ${DATARA_MAX_ROWS:-2000000}
+      DATARA_MAX_COLUMNS: ${DATARA_MAX_COLUMNS:-2000}
+    ports:
+      - "${ANALYSIS_PORT:-8000}:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).status==200 else 1)",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: datara-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      analysis-service:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Development}
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: >-
+        Host=postgres;Port=5432;Database=${POSTGRES_DB:-datara};Username=${POSTGRES_USER:-datara};Password=${POSTGRES_PASSWORD:-datara}
+      AnalysisService__BaseUrl: http://analysis-service:8000
+      FileStorage__RootPath: /var/lib/datara/storage
+      Ai__Enabled: ${AI_ENABLED:-false}
+      Ai__Provider: ${AI_PROVIDER:-openai}
+      Ai__Model: ${AI_MODEL:-gpt-4o-mini}
+      Ai__ApiKey: ${AI_API_KEY:-}
+      Ai__BaseUrl: ${AI_BASE_URL:-}
+      Cors__AllowedOrigins__0: ${FRONTEND_ORIGIN:-http://localhost:5173}
+    ports:
+      - "${API_PORT:-5000}:8080"
+    volumes:
+      - dataset-storage:/var/lib/datara/storage
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "dotnet",
+          "Datara.Api.dll",
+          "--healthcheck",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 6
+      start_period: 40s
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:5000}
+    container_name: datara-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-5173}:80"
+
+volumes:
+  postgres-data:
+  dataset-storage:
